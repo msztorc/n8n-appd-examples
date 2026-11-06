@@ -1,0 +1,41 @@
+{
+  "id": "externalSmokeTest",
+  "name": "External runner smoke test",
+  "active": false,
+  "nodes": [
+    {
+      "id": "cf601ae1-4b94-4d23-9386-2d1e382ba890",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0],
+      "parameters": {}
+    },
+    {
+      "id": "10f43035-520e-4d12-92cf-eb41c6d5069b",
+      "name": "Verify external JavaScript",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0],
+      "parameters": {
+        "jsCode": "const crypto = require('crypto');\nawait new Promise(resolve => setTimeout(resolve, 10000));\nreturn [{ json: { result: 2 + 3, checksum: crypto.createHash('sha256').update('external-runner').digest('hex') } }];"
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Verify external JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
