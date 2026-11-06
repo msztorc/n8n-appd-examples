@@ -1,0 +1,46 @@
+{
+  "task-runners": [
+    {
+      "runner-type": "python",
+      "workdir": "/home/runner",
+      "command": "/opt/venv/bin/python",
+      "args": ["-I", "-B", "-X", "disable_remote_debug", "/opt/runner/bootstrap.py"],
+      "health-check-server-port": "5682",
+      "allowed-env": [
+        "PATH",
+        "HOME",
+        "TZ",
+        "N8N_RUNNERS_LAUNCHER_LOG_LEVEL",
+        "N8N_RUNNERS_AUTO_SHUTDOWN_TIMEOUT",
+        "N8N_RUNNERS_GRACEFUL_SHUTDOWN_TIMEOUT",
+        "N8N_RUNNERS_TASK_TIMEOUT",
+        "N8N_RUNNERS_MAX_CONCURRENCY",
+        "N8N_SENTRY_DSN",
+        "N8N_VERSION",
+        "ENVIRONMENT",
+        "DEPLOYMENT_NAME",
+        "N8N_APPDYNAMICS_BT_NAME_TEMPLATE",
+        "APPDYNAMICS_AGENT_APPLICATION_NAME",
+        "APPDYNAMICS_AGENT_TIER_NAME",
+        "APPDYNAMICS_AGENT_NODE_NAME",
+        "APPDYNAMICS_AGENT_REUSE_NODE_NAME",
+        "APPDYNAMICS_AGENT_REUSE_NODE_NAME_PREFIX",
+        "APPDYNAMICS_AGENT_ACCOUNT_NAME",
+        "APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY",
+        "APPDYNAMICS_CONTROLLER_HOST_NAME",
+        "APPDYNAMICS_CONTROLLER_PORT",
+        "APPDYNAMICS_CONTROLLER_SSL_ENABLED",
+        "APPDYNAMICS_CONTROLLER_SSL_CERTFILE",
+        "APPDYNAMICS_TCP_COMM_HOST",
+        "APPDYNAMICS_TCP_COMM_PORT",
+        "APPDYNAMICS_LOGS_DIR",
+        "APPDYNAMICS_LOGGING_LEVEL"
+      ],
+      "env-overrides": {
+        "N8N_RUNNERS_INSECURE_MODE": "false",
+        "N8N_RUNNERS_STDLIB_ALLOW": "",
+        "N8N_RUNNERS_EXTERNAL_ALLOW": ""
+      }
+    }
+  ]
+}

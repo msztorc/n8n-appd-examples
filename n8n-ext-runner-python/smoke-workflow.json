@@ -1,0 +1,33 @@
+{
+  "id": "externalPythonSmokeTest",
+  "name": "External Python runner smoke test",
+  "active": false,
+  "nodes": [
+    {
+      "id": "7309cbbc-6c5c-4a53-848e-f38bc4e359df",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 0],
+      "parameters": {}
+    },
+    {
+      "id": "723880e7-fc0e-43c1-ac82-930f380ab9c1",
+      "name": "Verify external Python",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0],
+      "parameters": {
+        "language": "pythonNative",
+        "mode": "runOnceForAllItems",
+        "pythonCode": "values = [2, 3, 5, 7]\nreturn [{'json': {'result': 2 + 3, 'sum': sum(values), 'squares': [value * value for value in values], 'runner': 'python'}}]"
+      }
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{"node": "Verify external Python", "type": "main", "index": 0}]]
+    }
+  },
+  "settings": {"executionOrder": "v1"}
+}

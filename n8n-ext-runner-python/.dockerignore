@@ -1,0 +1,6 @@
+.env
+.env.*
+certs/
+*.test.js
+README.md
+__pycache__/
